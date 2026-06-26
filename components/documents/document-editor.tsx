@@ -1,0 +1,287 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import type { DocumentFrontmatter } from '@/lib/types/document';
+import { parseLines } from '@/lib/utils/strings';
+
+interface DocumentEditorProps {
+  documentId: string;
+  documentType: string;
+  initialFrontmatter: DocumentFrontmatter;
+  initialContent: string;
+  /** 额外的 frontmatter 编辑字段 */
+  frontmatterFields?: Array<{
+    key: string;
+    label: string;
+    value: string;
+    type?: 'text' | 'textarea';
+  }>;
+}
+
+interface ApiResponse {
+  ok: boolean;
+  data?: { id: string; path: string };
+  error?: unknown;
+}
+
+export function DocumentEditor({
+  documentId,
+  documentType,
+  initialFrontmatter,
+  initialContent,
+  frontmatterFields = [],
+}: DocumentEditorProps) {
+  const router = useRouter();
+  const [title, setTitle] = useState(initialFrontmatter.title ?? '');
+  const [date, setDate] = useState(initialFrontmatter.date ?? '');
+  const [themes, setThemes] = useState(
+    (initialFrontmatter.themes ?? []).join('\n'),
+  );
+  const [stocks, setStocks] = useState(
+    (initialFrontmatter.stocks ?? []).join('\n'),
+  );
+  const [tags, setTags] = useState(
+    (initialFrontmatter.tags ?? []).join('\n'),
+  );
+  const [content, setContent] = useState(initialContent);
+  const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  async function handleSave() {
+    setSaving(true);
+    setError('');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/documents', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: documentId,
+          type: documentType,
+          title,
+          date: date || undefined,
+          themes: parseLines(themes),
+          stocks: parseLines(stocks),
+          tags: parseLines(tags),
+          content: content.trim(),
+          // 保留原 frontmatter 中 type-specific 的字段
+          author: initialFrontmatter.author,
+          platform: initialFrontmatter.platform,
+          stance: initialFrontmatter.stance,
+          time_horizon: initialFrontmatter.time_horizon,
+          confidence: initialFrontmatter.confidence,
+          market_phase: initialFrontmatter.market_phase,
+          stock_code: initialFrontmatter.stock_code,
+          mentioned_stocks: initialFrontmatter.mentioned_stocks,
+          mentioned_themes: initialFrontmatter.mentioned_themes,
+          core_stocks: initialFrontmatter.core_stocks,
+          source: initialFrontmatter.source,
+          rawText: undefined,
+          extraction: undefined,
+          generation: undefined,
+          rawMaterials: undefined,
+          personalObservation: undefined,
+          selectedViewpoints: undefined,
+          ragContext: undefined,
+          marketSummary: undefined,
+          sectorPerformance: undefined,
+          newsCatalysts: undefined,
+          companyInfo: undefined,
+          announcements: undefined,
+          news: undefined,
+          viewpointSummary: undefined,
+          stockName: undefined,
+          themeName: undefined,
+        }),
+      });
+      const payload = (await response.json()) as ApiResponse;
+
+      if (!response.ok || !payload.ok) {
+        throw new Error(
+          typeof payload.error === 'string' ? payload.error : '更新失败',
+        );
+      }
+
+      setMessage('文档已更新');
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '更新失败');
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function handleDelete() {
+    setDeleting(true);
+    setError('');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/documents', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: documentId }),
+      });
+      const payload = (await response.json()) as ApiResponse;
+
+      if (!response.ok || !payload.ok) {
+        throw new Error(
+          typeof payload.error === 'string' ? payload.error : '删除失败',
+        );
+      }
+
+      // 根据类型跳转回列表页
+      const listRoutes: Record<string, string> = {
+        viewpoint: '/viewpoints',
+        daily_review: '/reviews',
+        theme_research: '/themes',
+        stock_profile: '/stocks',
+        note: '/notes',
+      };
+      router.push(listRoutes[documentType] ?? '/dashboard');
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '删除失败');
+      setDeleting(false);
+      setShowDeleteConfirm(false);
+    }
+  }
+
+  return (
+    <section className="glass-card form-card">
+      <div className="form-section-title">编辑文档</div>
+
+      <label className="form-field">
+        <span>标题</span>
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      </label>
+
+      <div className="inline-grid">
+        <label className="form-field">
+          <span>日期</span>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </label>
+        {frontmatterFields.map((field) => (
+          <label key={field.key} className="form-field">
+            <span>{field.label}</span>
+            {field.type === 'textarea' ? (
+              <textarea
+                rows={2}
+                value={field.value}
+                readOnly
+              />
+            ) : (
+              <input value={field.value} readOnly />
+            )}
+          </label>
+        ))}
+      </div>
+
+      <label className="form-field">
+        <span>主题，每行一个</span>
+        <textarea
+          rows={2}
+          value={themes}
+          onChange={(e) => setThemes(e.target.value)}
+        />
+      </label>
+
+      <label className="form-field">
+        <span>相关股票，每行一个</span>
+        <textarea
+          rows={2}
+          value={stocks}
+          onChange={(e) => setStocks(e.target.value)}
+        />
+      </label>
+
+      <label className="form-field">
+        <span>标签，每行一个</span>
+        <textarea
+          rows={2}
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+      </label>
+
+      <label className="form-field">
+        <span>Markdown 正文</span>
+        <textarea
+          rows={20}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.7 }}
+        />
+      </label>
+
+      {message ? (
+        <div className="status-message status-success">{message}</div>
+      ) : null}
+      {error ? (
+        <div className="status-message status-error">{error}</div>
+      ) : null}
+
+      <div className="form-actions" style={{ justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', gap: 12 }}>
+          <button
+            className="primary-button"
+            disabled={!title.trim() || saving}
+            onClick={handleSave}
+            type="button"
+          >
+            {saving ? '保存中...' : '保存修改'}
+          </button>
+        </div>
+
+        {showDeleteConfirm ? (
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <span style={{ color: 'var(--muted)', fontSize: 13 }}>
+              确认删除？
+            </span>
+            <button
+              className="primary-button"
+              style={{
+                borderColor: 'rgba(255, 143, 143, 0.3)',
+                background: 'rgba(255, 143, 143, 0.15)',
+              }}
+              disabled={deleting}
+              onClick={handleDelete}
+              type="button"
+            >
+              {deleting ? '删除中...' : '确认'}
+            </button>
+            <button
+              className="primary-button"
+              disabled={deleting}
+              onClick={() => setShowDeleteConfirm(false)}
+              type="button"
+            >
+              取消
+            </button>
+          </div>
+        ) : (
+          <button
+            className="primary-button"
+            style={{
+              borderColor: 'rgba(255, 143, 143, 0.2)',
+              background: 'rgba(255, 143, 143, 0.08)',
+            }}
+            onClick={() => setShowDeleteConfirm(true)}
+            type="button"
+          >
+            删除文档
+          </button>
+        )}
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "query": "中际旭创的竞争壁垒是什么",
+    "expectedIntent": "stock_deep",
+    "expectedStocks": ["中际旭创"],
+    "note": "个股竞争优势"
+  },
+  {
+    "query": "亨通光电的主营业务",
+    "expectedIntent": "stock_deep",
+    "expectedStocks": ["亨通光电"],
+    "note": "个股主营业务"
+  },
+  {
+    "query": "京东方在面板领域有哪些优势",
+    "expectedIntent": "stock_deep",
+    "expectedStocks": ["京东方"],
+    "note": "个股优势"
+  },
+  {
+    "query": "源杰科技的光芯片技术怎么样",
+    "expectedIntent": "stock_deep",
+    "note": "个股技术面"
+  },
+  {
+    "query": "验证中际旭创Q1营收增长是否兑现",
+    "expectedIntent": "verification",
+    "expectedStocks": ["中际旭创"],
+    "note": "验证财务数据"
+  },
+  {
+    "query": "硅光方案能不能取代EML",
+    "expectedIntent": "verification",
+    "note": "验证技术替代"
+  },
+  {
+    "query": "CPO技术是否已经量产",
+    "expectedIntent": "verification",
+    "note": "验证量产"
+  },
+  {
+    "query": "玻璃基板先进封装是否真的落地了",
+    "expectedIntent": "verification",
+    "note": "验证落地"
+  },
+  {
+    "query": "先进封装产能是否过剩",
+    "expectedIntent": "verification",
+    "note": "验证产能"
+  },
+  {
+    "query": "光通信产业链上下游有哪些公司",
+    "expectedIntent": "chain",
+    "note": "产业链上下游"
+  },
+  {
+    "query": "光模块的上游芯片供应商有哪些",
+    "expectedIntent": "chain",
+    "note": "供应链上游"
+  },
+  {
+    "query": "PCB产业链分析",
+    "expectedIntent": "chain",
+    "note": "产业链分析"
+  },
+  {
+    "query": "CCL产业链的上游材料",
+    "expectedIntent": "chain",
+    "note": "上游材料"
+  },
+  {
+    "query": "800G光模块最近有什么催化",
+    "expectedIntent": "recency",
+    "note": "催化查询"
+  },
+  {
+    "query": "光模块行业最新动态",
+    "expectedIntent": "recency",
+    "note": "行业动态"
+  },
+  {
+    "query": "半导体设备板块资金流向",
+    "expectedIntent": "market_review",
+    "note": "板块资金"
+  },
+  {
+    "query": "AI算力板块最近走势",
+    "expectedIntent": "market_review",
+    "note": "板块走势（带时效）"
+  },
+  {
+    "query": "NAND行业AI驱动什么意思",
+    "expectedIntent": "general",
+    "note": "概念解释"
+  },
+  {
+    "query": "半导体前驱体是什么",
+    "expectedIntent": "general",
+    "note": "概念解释"
+  },
+  {
+    "query": "存储材料有哪些投资机会",
+    "expectedIntent": "general",
+    "note": "投资机会泛查"
+  }
+]

@@ -1,0 +1,30 @@
+{"id": "eval_001", "query": "中际旭创的竞争壁垒是什么", "relevantDocIds": ["material-2026-06-21-中际旭创800g-1-6t光模块放量驱动高成长", "material-2026-06-21-中际旭创2026q1营收增192-净利增262"], "category": "stock_deep", "note": "中际旭创竞争壁垒"}
+{"id": "eval_002", "query": "亨通光电的主营业务", "relevantDocIds": ["stock-profile-亨通光电-mqku4yzf-亨通光电个股档案"], "category": "stock_deep", "note": "亨通光电主营业务"}
+{"id": "eval_003", "query": "中天科技的投资价值", "relevantDocIds": ["stock-profile-中天科技-mqkuibob-中天科技个股档案"], "category": "stock_deep", "note": "中天科技投资价值"}
+{"id": "eval_004", "query": "京东方在面板领域有哪些优势", "relevantDocIds": ["stock-profile-京东方-mqi5dmrh-京东方个股档案"], "category": "stock_deep", "note": "京东方优势"}
+{"id": "eval_005", "query": "源杰科技的光芯片技术怎么样", "relevantDocIds": ["material-2026-06-20-光模块技术演进与关键节点分析"], "category": "stock_deep", "note": "源杰科技光芯片"}
+{"id": "eval_006", "query": "800G光模块最近有什么催化", "relevantDocIds": ["material-2026-06-22-800g-1-6t光模块投资主线分析", "viewpoint-2026-06-20-乘黄18观点蒸馏"], "category": "recency", "note": "800G光模块催化"}
+{"id": "eval_007", "query": "光模块行业最新动态", "relevantDocIds": ["material-2026-06-22-光模块技术路线与产业链分析", "viewpoint-2026-06-20-杨爽511观点蒸馏"], "category": "recency", "note": "光模块最新动态"}
+{"id": "eval_008", "query": "最近有什么关于光纤的新闻", "relevantDocIds": ["material-2026-06-23-光纤设备受益ai数据中心-预制棒拉丝景气提升", "viewpoint-2026-06-20-赵燕翎观点蒸馏"], "category": "recency", "note": "光纤新闻"}
+{"id": "eval_009", "query": "最近有什么催化事件", "relevantDocIds": [], "category": "recency", "note": "通用催化查询"}
+{"id": "eval_010", "query": "今天有什么公告", "relevantDocIds": [], "category": "recency", "note": "今日公告"}
+{"id": "eval_011", "query": "验证中际旭创Q1营收增长是否兑现", "relevantDocIds": ["material-2026-06-21-中际旭创2026q1营收增192-净利增262", "material-2026-06-21-中际旭创800g-1-6t光模块放量驱动高成长", "material-2026-06-21-中际旭创q1营收增192-净利增262"], "category": "verification", "note": "验证中际旭创Q1营收"}
+{"id": "eval_012", "query": "硅光方案能不能取代EML", "relevantDocIds": ["theme-research-硅光-mqlrl9sa-硅光产业链研究", "material-2026-06-20-光模块技术演进与关键节点分析"], "category": "verification", "note": "硅光vsEML验证"}
+{"id": "eval_013", "query": "玻璃基板先进封装是否真的落地了", "relevantDocIds": ["material-2026-06-22-玻璃基板-ai先进封装远期路线", "theme-research-玻璃基板-mqgufy4i-玻璃基板产业链研究"], "category": "verification", "note": "玻璃基板验证"}
+{"id": "eval_014", "query": "CPO技术是否已经量产", "relevantDocIds": ["material-2026-06-20-光模块cpo关键器件供应商梳理", "theme-research-cpo-mqljjeu1-cpo产业链研究"], "category": "verification", "note": "CPO量产验证"}
+{"id": "eval_015", "query": "先进封装产能是否过剩", "relevantDocIds": ["material-2026-06-22-玻璃基板-ai先进封装远期路线"], "category": "verification", "note": "先进封装产能"}
+{"id": "eval_016", "query": "光通信产业链上下游有哪些公司", "relevantDocIds": ["theme-research-光通信-mqntg7u0-光通信产业链研究", "material-2026-06-20-光通信产业链国产化格局-光模块领先但硅光代工薄弱"], "category": "chain", "note": "光通信产业链"}
+{"id": "eval_017", "query": "光模块的上游芯片供应商有哪些", "relevantDocIds": ["material-2026-06-22-光模块技术路线与产业链分析", "material-2026-06-21-光模块行业四层级竞争格局分析"], "category": "chain", "note": "光模块上游供应商"}
+{"id": "eval_018", "query": "PCB产业链分析", "relevantDocIds": ["theme-research-pcb-mqljike8-pcb产业链研究"], "category": "chain", "note": "PCB产业链"}
+{"id": "eval_019", "query": "CCL产业链的上游材料", "relevantDocIds": ["theme-research-ccl-mqljj5j7-ccl产业链研究"], "category": "chain", "note": "CCL上游材料"}
+{"id": "eval_020", "query": "光纤预制棒行业有哪些公司", "relevantDocIds": ["material-2026-06-23-光纤设备受益ai数据中心-预制棒拉丝景气提升"], "category": "chain", "note": "光纤预制棒"}
+{"id": "eval_021", "query": "今天A股市场复盘", "relevantDocIds": [], "category": "market_review", "note": "今日复盘"}
+{"id": "eval_022", "query": "最近市场情绪怎么样", "relevantDocIds": [], "category": "market_review", "note": "市场情绪"}
+{"id": "eval_023", "query": "AI算力板块最近走势", "relevantDocIds": ["material-2026-06-22-ai产业从模型竞赛转向超级基础设施竞赛"], "category": "market_review", "note": "AI算力走势"}
+{"id": "eval_024", "query": "半导体设备板块资金流向", "relevantDocIds": ["viewpoint-2026-06-22-mark-huang观点蒸馏"], "category": "market_review", "note": "半导体设备资金流向"}
+{"id": "eval_025", "query": "电子布产业链研究", "relevantDocIds": ["theme-research-电子布-mqljfxt2-电子布产业链研究"], "category": "chain", "note": "电子布产业链"}
+{"id": "eval_026", "query": "AI数据中心对光纤材料需求的影响", "relevantDocIds": ["material-2026-06-23-ai数据中心光纤材料供需错配", "theme-research-光纤-mqku3eqq-光纤产业链研究"], "category": "chain", "note": "AI数据中心光纤需求"}
+{"id": "eval_027", "query": "NAND行业AI驱动什么意思", "relevantDocIds": ["material-2026-06-23-nand行业ai驱动转向企业级存储"], "category": "general", "note": "NAND行业AI驱动"}
+{"id": "eval_028", "query": "半导体前驱体是什么", "relevantDocIds": ["material-2026-06-23-半导体前驱体-ai拉动需求与国产替代"], "category": "general", "note": "半导体前驱体"}
+{"id": "eval_029", "query": "存储材料有哪些投资机会", "relevantDocIds": ["material-2026-06-23-存储材料核心判断-ai驱动新约束与投资机会", "material-2026-06-22-ai存储三线分层技术路线与a股映射"], "category": "general", "note": "存储材料投资机会"}
+{"id": "eval_030", "query": "AI拉动高端硅片的结构性机会", "relevantDocIds": ["material-2026-06-23-ai拉动高端硅片结构性机会"], "category": "general", "note": "AI高端硅片"}

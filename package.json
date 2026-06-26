@@ -1,0 +1,41 @@
+{
+  "name": "first-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "build-index": "tsx scripts/build-index.ts",
+    "rag": "tsx scripts/build-rag-index.ts",
+    "eval": "tsx --env-file=.env.local scripts/eval-rag.ts",
+    "seed": "tsx scripts/seed-sample-data.ts"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.2",
+    "@huggingface/transformers": "^4.2.0",
+    "antd": "^5.27.1",
+    "glob": "^11.0.3",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.525.0",
+    "next": "^15.3.3",
+    "pdf-parse": "^2.4.5",
+    "playwright-core": "^1.61.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.3.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
